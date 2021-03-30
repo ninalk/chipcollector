@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Chip Details</h1>
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">{{ chip.brand }}</span>
+    <p>Flavor: {{ chip.flavor }}</p>
+    <p>Cut-style: {{ chip.style }}</p>
+    <p>Origin: {{ chip.origin }}</p>
+  </div>
+</div>
+
+{% endblock %}

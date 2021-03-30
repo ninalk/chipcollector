@@ -4,14 +4,16 @@
 <h1>Chip List</h1>
 
 {% for chip in chips %}
-  <div class="card">
-    <div class="card-content">
-      <span class="card-title">{{ chip.brand }}</span>
-      <p>Flavor: {{ chip.flavor }}</p>
-      <p>Cut-style: {{ chip.style }}</p>
-      <p>Origin: {{ chip.origin }}</p>
+  <a href="{% url 'detail' chip.id %}">
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">{{ chip.brand }}</span>
+        <p>Flavor: {{ chip.flavor }}</p>
+        <p>Cut-style: {{ chip.style }}</p>
+        <p>Origin: {{ chip.origin }}</p>
+      </div>
     </div>
-  </div>
+  </a>
 {% endfor %}
 
 {% endblock %}
