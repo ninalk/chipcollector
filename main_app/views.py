@@ -45,6 +45,10 @@ def assoc_store(request, chip_id, store_id):
   Chip.objects.get(id=chip_id).stores.add(store_id)
   return redirect('detail', chip_id=chip_id)
 
+def unassoc_store(request, chip_id, store_id):
+  Chip.objects.get(id=chip_id).stores.remove(store_id)
+  return redirect('detail', chip_id=chip_id)
+
 def add_review(request, chip_id):
   # create a ModelForm instance using the data in request.POST
   form = ReviewForm(request.POST)

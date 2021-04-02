@@ -56,11 +56,11 @@
           <div class="card">
             <div class="card-content">
               <span class="card-title">
-                A {{ store.size }} <strong>{{ store.name }}</strong>
+                {{ store.size }}: <strong>{{ store.name }}</strong>
               </span>
             </div>
             <div class="card-action">
-              <a href="{% url 'stores_delete' store.id %}">Delete</a>
+              <a href="{% url 'unassoc_store' chip.id store.id %}">Delete</a>
             </div>
           </div>
         {% endfor %}

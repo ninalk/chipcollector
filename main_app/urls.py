@@ -11,6 +11,7 @@ urlpatterns = [
   path('chips/<int:pk>/delete/', views.ChipDelete.as_view(), name='chips_delete'),
   path('chips/<int:chip_id>/add_review/', views.add_review, name='add_review'),
   path('chips/<int:chip_id>/assoc_store/<int:store_id>/', views.assoc_store, name='assoc_store'),
+  path('chips/<int:chip_id>/unassoc_store/<int:store_id>/', views.unassoc_store, name='unassoc_store'),
   path('stores/', views.StoreList.as_view(), name='stores_index'),
   path('stores/<int:pk>/', views.StoreDetail.as_view(), name='stores_detail'),
   path('stores/create/', views.StoreCreate.as_view(), name='stores_create'),
