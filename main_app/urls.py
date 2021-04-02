@@ -10,4 +10,10 @@ urlpatterns = [
   path('chips/<int:pk>/update/', views.ChipUpdate.as_view(), name='chips_update'),
   path('chips/<int:pk>/delete/', views.ChipDelete.as_view(), name='chips_delete'),
   path('chips/<int:chip_id>/add_review/', views.add_review, name='add_review'),
+  path('chips/<int:chip_id>/assoc_store/<int:store_id>/', views.assoc_store, name='assoc_store'),
+  path('stores/', views.StoreList.as_view(), name='stores_index'),
+  path('stores/<int:pk>/', views.StoreDetail.as_view(), name='stores_detail'),
+  path('stores/create/', views.StoreCreate.as_view(), name='stores_create'),
+  path('stores/<int:pk>/update/', views.StoreUpdate.as_view(), name='stores_update'),
+  path('stores/<int:pk>/delete/', views.StoreDelete.as_view(), name='stores_delete'),
 ]

@@ -46,6 +46,52 @@
     </table>
   </div>
 </div>
+<!-- This is all new markup to be added just above the <script> tag -->
+  <hr>
+  <div class="row">
+    <div class="col s6">
+      <h3>{{ chip.brand }} Stores:</h3>
+      {% if chip.stores.count %}
+        {% for store in chip.stores.all %}
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">
+                A {{ store.size }} <strong>{{ store.name }}</strong>
+              </span>
+            </div>
+            <div class="card-action">
+              <a href="{% url 'stores_delete' store.id %}">Delete</a>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <h5>Not sold in anywhere!</h5>
+      {% endif %}
+    </div>
+    <!-- Available stores will come after this line -->
+    <div class="col s6">
+      <h3>Available Stores:</h3>
+      {% if stores.count %}
+        {% for store in stores.all %}
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">
+                A {{ store.size }} <strong>{{ store.name }}</strong>
+              </span>
+            </div>
+            <div class="card-action">
+              <form action="{% url 'assoc_store' chip.id store.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn">Add</button>
+              </form>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <h5>{{chip.brand}} is sold everywhere!</h5>
+      {% endif %}
+    </div>
+  </div>
 <script>
   const dateEl = document.getElementById('id_date');
   M.Datepicker.init(dateEl, {
